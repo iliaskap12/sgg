@@ -12,6 +12,7 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/Perlmint/glew-cmake.git
   GIT_TAG        origin/master
 )
+FetchContent_MakeAvailable(glew)
 FetchContent_GetProperties(glew)
 if(NOT glew_POPULATED)
   FetchContent_Populate(glew)
@@ -30,16 +31,7 @@ if(NOT glm_POPULATED)
   add_subdirectory(${glm_SOURCE_DIR} ${glm_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
-FetchContent_Declare(
-        SDL2
-        GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
-        GIT_TAG main)
-FetchContent_MakeAvailable(SDL2)
-if(NOT SDL2_POPULATED)
-  FetchContent_Populate(SDL2)
 
-  add_subdirectory(${SDL2_SOURCE_DIR} ${SDL2_BINARY_DIR} EXCLUDE_FROM_ALL)
-endif()
 
 FetchContent_Declare(
         freetype
@@ -60,9 +52,9 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 find_package (OpenGL REQUIRED)
 #find_package(Wrap_GLEW MODULE REQUIRED)
 #find_package(Wrap_glm MODULE REQUIRED)
-#find_package(Wrap_SDL2 MODULE REQUIRED)
+find_package(Wrap_SDL2 MODULE REQUIRED)
 find_package(Wrap_Freetype MODULE REQUIRED) 
-#find_package(Wrap_SDL2_mixer MODULE REQUIRED)
+find_package(Wrap_SDL2_mixer MODULE REQUIRED)
 
 add_library(sgg
     sgg/audio.cpp
