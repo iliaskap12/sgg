@@ -1,11 +1,5 @@
 cmake_minimum_required(VERSION 3.15.7)
 
-project(sgg VERSION 1.0.0 LANGUAGES CXX)
-
-set(CMAKE_CXX_STANDARD 23)
-
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-
 # FetchContent added in CMake 3.11, downloads during the configure step
 include(FetchContent)
 # FetchContent_MakeAvailable was not added until CMake 3.14; use our shim
@@ -57,12 +51,18 @@ if(NOT freetype_POPULATED)
   add_subdirectory(${freetype_SOURCE_DIR} ${freetype_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
+project(sgg VERSION 1.0.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 23)
+
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
 find_package (OpenGL REQUIRED)
 #find_package(Wrap_GLEW MODULE REQUIRED)
 #find_package(Wrap_glm MODULE REQUIRED)
 #find_package(Wrap_SDL2 MODULE REQUIRED)
 find_package(Wrap_Freetype MODULE REQUIRED) 
-find_package(Wrap_SDL2_mixer MODULE REQUIRED)
+#find_package(Wrap_SDL2_mixer MODULE REQUIRED)
 
 add_library(sgg
     sgg/audio.cpp
