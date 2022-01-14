@@ -25,8 +25,20 @@ if(NOT glew_POPULATED)
   add_subdirectory(${glew_SOURCE_DIR} ${glew_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
+FetchContent_Declare(
+        glm
+        GIT_REPOSITORY https://github.com/g-truc/glm.git)
+FetchContent_MakeAvailable(glm)
+FetchContent_GetProperties(glm)
+if(NOT glm_POPULATED)
+  FetchContent_Populate(glm)
+
+  add_subdirectory(${glm_SOURCE_DIR} ${glm_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
+
+find_package (OpenGL REQUIRED)
 #find_package(Wrap_GLEW MODULE REQUIRED)
-find_package(Wrap_glm MODULE REQUIRED)
+#find_package(Wrap_glm MODULE REQUIRED)
 find_package(Wrap_SDL2 MODULE REQUIRED)
 find_package(Wrap_Freetype MODULE REQUIRED) 
 find_package(Wrap_SDL2_mixer MODULE REQUIRED)
@@ -50,7 +62,7 @@ target_include_directories(sgg
 
 target_link_libraries(sgg
     PUBLIC
-    $<TARGET_NAME_IF_EXISTS:glm::glm>
+    glm
     libglew_static
     $<TARGET_NAME_IF_EXISTS:SDL2::SDL2>
     $<TARGET_NAME_IF_EXISTS:Freetype::Freetype>
