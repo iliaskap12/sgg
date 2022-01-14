@@ -6,14 +6,24 @@ set(CMAKE_CXX_STANDARD 23)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-FetchContent_Declare(
-        glew
-        GIT_REPOSITORY https://github.com/nigels-com/glew.git)
-FetchContent_MakeAvailable(glew)
-if (NOT glew_POPULATED)
-    FetchContent_Populate(glew)
-    add_subdirectory(${glew_SOURCE_DIR} ${glew_BINARY_DIR})
+# FetchContent added in CMake 3.11, downloads during the configure step
+include(FetchContent)
+# FetchContent_MakeAvailable was not added until CMake 3.14; use our shim
+if (${CMAKE_VERSION} VERSION_LESS 3.14)
+    include(cmake/add_FetchContent_MakeAvailable.cmake)
 endif ()
+
+FetchContent_Declare(
+  glew
+  GIT_REPOSITORY https://github.com/Perlmint/glew-cmake.git
+  GIT_TAG        origin/master
+)
+FetchContent_GetProperties(glew)
+if(NOT glew_POPULATED)
+  FetchContent_Populate(glew)
+
+  add_subdirectory(${glew_SOURCE_DIR} ${glew_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
 
 #find_package(Wrap_GLEW MODULE REQUIRED)
 find_package(Wrap_glm MODULE REQUIRED)
@@ -41,7 +51,7 @@ target_include_directories(sgg
 target_link_libraries(sgg
     PUBLIC
     $<TARGET_NAME_IF_EXISTS:glm::glm>
-    glew
+    libglew_static
     $<TARGET_NAME_IF_EXISTS:SDL2::SDL2>
     $<TARGET_NAME_IF_EXISTS:Freetype::Freetype>
     $<TARGET_NAME_IF_EXISTS:SDL2::SDL2_mixer>
