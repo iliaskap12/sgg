@@ -36,10 +36,31 @@ if(NOT glm_POPULATED)
   add_subdirectory(${glm_SOURCE_DIR} ${glm_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
+FetchContent_Declare(
+        SDL
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+        GIT_TAG main)
+FetchContent_MakeAvailable(SDL)
+if(NOT SDL_POPULATED)
+  FetchContent_Populate(SDL)
+
+  add_subdirectory(${SDL_SOURCE_DIR} ${SDL_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
+
+FetchContent_Declare(
+        freetype
+        GIT_REPOSITORY https://github.com/freetype/freetype.git)
+FetchContent_MakeAvailable(freetype)
+if(NOT freetype_POPULATED)
+  FetchContent_Populate(freetype)
+
+  add_subdirectory(${freetype_SOURCE_DIR} ${freetype_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
+
 find_package (OpenGL REQUIRED)
 #find_package(Wrap_GLEW MODULE REQUIRED)
 #find_package(Wrap_glm MODULE REQUIRED)
-find_package(Wrap_SDL2 MODULE REQUIRED)
+#find_package(Wrap_SDL2 MODULE REQUIRED)
 find_package(Wrap_Freetype MODULE REQUIRED) 
 find_package(Wrap_SDL2_mixer MODULE REQUIRED)
 
@@ -64,8 +85,8 @@ target_link_libraries(sgg
     PUBLIC
     glm
     libglew_static
-    $<TARGET_NAME_IF_EXISTS:SDL2::SDL2>
-    $<TARGET_NAME_IF_EXISTS:Freetype::Freetype>
+    SDL
+    freetype
     $<TARGET_NAME_IF_EXISTS:SDL2::SDL2_mixer>
 )
 
