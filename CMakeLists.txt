@@ -31,14 +31,14 @@ if(NOT glm_POPULATED)
 endif()
 
 FetchContent_Declare(
-        SDL
+        SDL2
         GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
         GIT_TAG main)
-FetchContent_MakeAvailable(SDL)
-if(NOT SDL_POPULATED)
-  FetchContent_Populate(SDL)
+FetchContent_MakeAvailable(SDL2)
+if(NOT SDL2_POPULATED)
+  FetchContent_Populate(SDL2)
 
-  add_subdirectory(${SDL_SOURCE_DIR} ${SDL_BINARY_DIR} EXCLUDE_FROM_ALL)
+  add_subdirectory(${SDL2_SOURCE_DIR} ${SDL2_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
 FetchContent_Declare(
@@ -85,9 +85,8 @@ target_link_libraries(sgg
     PUBLIC
     glm
     libglew_static
-    SDL
+    SDL2
     freetype
-    $<TARGET_NAME_IF_EXISTS:SDL2::SDL2_mixer>
 )
 
 include(cmake/Installation.cmake)
