@@ -2,9 +2,20 @@ cmake_minimum_required(VERSION 3.15.7)
 
 project(sgg VERSION 1.0.0 LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 23)
+
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-find_package(Wrap_GLEW MODULE REQUIRED)
+FetchContent_Declare(
+        glew
+        GIT_REPOSITORY https://github.com/nigels-com/glew.git)
+FetchContent_MakeAvailable(glew)
+if (NOT glew_POPULATED)
+    FetchContent_Populate(glew)
+    add_subdirectory(${glew_SOURCE_DIR} ${glew_BINARY_DIR})
+endif ()
+
+#find_package(Wrap_GLEW MODULE REQUIRED)
 find_package(Wrap_glm MODULE REQUIRED)
 find_package(Wrap_SDL2 MODULE REQUIRED)
 find_package(Wrap_Freetype MODULE REQUIRED) 
@@ -30,7 +41,7 @@ target_include_directories(sgg
 target_link_libraries(sgg
     PUBLIC
     $<TARGET_NAME_IF_EXISTS:glm::glm>
-    $<TARGET_NAME_IF_EXISTS:GLEW::glew>
+    glew
     $<TARGET_NAME_IF_EXISTS:SDL2::SDL2>
     $<TARGET_NAME_IF_EXISTS:Freetype::Freetype>
     $<TARGET_NAME_IF_EXISTS:SDL2::SDL2_mixer>
