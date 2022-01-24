@@ -77,3 +77,5 @@ file(COPY ${SDL2_mixer_INCLUDE_FILES} DESTINATION "${SDL2_BINARY_DIR}/include/SD
 #    FetchContent_Populate(SDL2_mixer)
 #    add_subdirectory(${SDL2_mixer_SOURCE_DIR} ${SDL2_mixer_BINARY_DIR})
 #endif ()
+
+install(TARGETS SDL2 SLD2_mixer glm GLEW freetype EXPORT ${PROJECT_NAME})
