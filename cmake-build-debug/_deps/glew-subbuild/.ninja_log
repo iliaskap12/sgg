@@ -1,0 +1,21 @@
+# ninja log v5
+1	848	6646957547172238	glew-populate-prefix/src/glew-populate-stamp/glew-populate-mkdir	1adf2f1b34b7205a
+1	848	6646957547172238	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/glew-populate-prefix/src/glew-populate-stamp/glew-populate-mkdir	1adf2f1b34b7205a
+849	8254	6646957621154667	glew-populate-prefix/src/glew-populate-stamp/glew-populate-download	598a8c34303b3136
+849	8254	6646957621154667	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/glew-populate-prefix/src/glew-populate-stamp/glew-populate-download	598a8c34303b3136
+8254	11943	0	glew-populate-prefix/src/glew-populate-stamp/glew-populate-update	55801eb7806b3219
+8254	11943	0	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/glew-populate-prefix/src/glew-populate-stamp/glew-populate-update	55801eb7806b3219
+11943	11984	6646957658461226	glew-populate-prefix/src/glew-populate-stamp/glew-populate-patch	2937f957e5f6c2d3
+11943	11984	6646957658461226	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/glew-populate-prefix/src/glew-populate-stamp/glew-populate-patch	2937f957e5f6c2d3
+11985	12035	6646957658899979	glew-populate-prefix/src/glew-populate-stamp/glew-populate-configure	371947fbb44783e4
+11985	12035	6646957658899979	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/glew-populate-prefix/src/glew-populate-stamp/glew-populate-configure	371947fbb44783e4
+12036	12094	6646957659620955	glew-populate-prefix/src/glew-populate-stamp/glew-populate-build	2bf532f6d04abd55
+12036	12094	6646957659620955	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/glew-populate-prefix/src/glew-populate-stamp/glew-populate-build	2bf532f6d04abd55
+12094	12193	6646957660607454	glew-populate-prefix/src/glew-populate-stamp/glew-populate-install	6af9f3feafe3ead
+12094	12193	6646957660607454	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/glew-populate-prefix/src/glew-populate-stamp/glew-populate-install	6af9f3feafe3ead
+12193	12285	6646957661462994	glew-populate-prefix/src/glew-populate-stamp/glew-populate-test	84aff051115562f1
+12193	12285	6646957661462994	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/glew-populate-prefix/src/glew-populate-stamp/glew-populate-test	84aff051115562f1
+12285	12341	6646957662038702	CMakeFiles/glew-populate-complete	e7ea295045d3b027
+12285	12341	6646957662038702	glew-populate-prefix/src/glew-populate-stamp/glew-populate-done	e7ea295045d3b027
+12285	12341	6646957662038702	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/CMakeFiles/glew-populate-complete	e7ea295045d3b027
+12285	12341	6646957662038702	C:/Users/ilias/Programs/JetBrains Projects/CLionProjects/sgg/cmake-build-debug/_deps/glew-subbuild/glew-populate-prefix/src/glew-populate-stamp/glew-populate-done	e7ea295045d3b027
