@@ -1,6 +1,6 @@
 include (GNUInstallDirs)
 
-install(TARGETS ${PROJECT_NAME} SDL2 SDL2_mixer glm libglew_shared freetype EXPORT ${PROJECT_NAME}-targets)
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}-targets)
 
 # install tree
 install(EXPORT ${PROJECT_NAME}-targets
