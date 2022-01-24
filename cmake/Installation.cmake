@@ -1,6 +1,6 @@
 include (GNUInstallDirs)
 
-install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}-targets)
+install(TARGETS ${PROJECT_NAME} SDL2 SDL2_mixer glm libglew_shared freetype EXPORT ${PROJECT_NAME}-targets)
 
 # install tree
 install(EXPORT ${PROJECT_NAME}-targets
@@ -23,8 +23,8 @@ configure_package_config_file(cmake/${PROJECT_NAME}-config.cmake.in
     NO_SET_AND_CHECK_MACRO
     NO_CHECK_REQUIRED_COMPONENTS_MACRO
     INSTALL_DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/${PROJECT_NAME}
-    PATH_VARS 
-        CMAKE_INSTALL_DATADIR 
+    PATH_VARS
+        CMAKE_INSTALL_DATADIR
 )
 
 # build tree
@@ -46,7 +46,7 @@ install(FILES
     DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/${PROJECT_NAME}
 )
 
-install(DIRECTORY 
+install(DIRECTORY
     ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
     FILES_MATCHING PATTERN "*.h"
