@@ -32,14 +32,14 @@ if(NOT TARGET GLEW)
 endif()
 
 FetchContent_Declare(
-        freetype
+        Freetype
         GIT_REPOSITORY https://github.com/freetype/freetype.git
 )
 
-FetchContent_GetProperties(freetype)
-if (NOT freetype_POPULATED)
-    FetchContent_Populate(freetype)
-    add_subdirectory(${freetype_SOURCE_DIR} ${freetype_BINARY_DIR})
+FetchContent_GetProperties(Freetype)
+if (NOT Freetype_POPULATED)
+    FetchContent_Populate(Freetype)
+    add_subdirectory(${Freetype_SOURCE_DIR} ${Freetype_BINARY_DIR})
 endif ()
 
 FetchContent_Declare(
