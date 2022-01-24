@@ -30,10 +30,10 @@ target_include_directories(sgg
     PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:include>
+    ${SDL2_INCLUDE_DIR}
 )
 
-target_include_directories(sgg PRIVATE ${SDL2_INCLUDE_DIR})
-target_link_libraries(sgg freetype SDL2 SDL2_mixer glm GLEW)
+target_link_libraries(sgg PRIVATE freetype SDL2 SDL2_mixer glm GLEW)
 
 include(cmake/Installation.cmake)
 
